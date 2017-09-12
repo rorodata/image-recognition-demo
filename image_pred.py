@@ -19,7 +19,7 @@ def topk(pred, k=3):
     return topk
 
 def classify(image):
-    img=scipy.misc.imresize(b, (224,224))
+    img=scipy.misc.imresize(image, (224,224))
     pred=vgg16.predict(img.reshape(1,224,224,3))
     top5=topk(pred,5)
 #     for i in top5:
