@@ -26,7 +26,7 @@ def load_model():
         _model = keras.applications.vgg16.VGG16(include_top=True, weights='imagenet', input_tensor=None, input_shape=None)
     return _model
 
-def predict(image, k=5):
+def predict(image, npreds=5):
     """
     input - takes an RGB image (numpy array ) as input, preferably bigger than 224X224
     returns - json file with two lists: Label, Probability
@@ -34,11 +34,11 @@ def predict(image, k=5):
     img=scipy.misc.imresize(image, (224,224))
     vgg16=load_model()
     pred=vgg16.predict(img.reshape(1,224,224,3))
-    top5=topk(pred,k=5)
+    top_npreds=topk(pred,k=npreds)
 #     for i in top5:
 #         print(pred[0,i], imagenet_labels.imgnet1000[i])
-    labelz=[imagenet_labels.imgnet1000[i] for i in top5]
-    probz=[float(round(pred[0,i],2)) for i in top5]
+    labelz=[imagenet_labels.imgnet1000[i] for i in top_npreds]
+    probz=[float(round(pred[0,i],2)) for i in top_npreds]
     d={"labels":labelz, "probs":probz}
     return json.dumps(d)
 
