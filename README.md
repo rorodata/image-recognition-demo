@@ -31,7 +31,7 @@ Deploying project image-recognition. This may take a few moments ...
 Restarted {} services. 1
 default: https://image-recognition.rorocloud.io/
 
-#inspect processes, make sure training is finished before using service
+#inspect processes, just to check if the service is running
 > roro ps
 JOBID     STATUS    WHEN            TIME     INSTANCE TYPE    CMD
 --------  --------  --------------  -------  ---------------  -------------------------------------
