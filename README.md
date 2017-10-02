@@ -28,7 +28,7 @@ Created project: image-recognition
 
 > roro deploy
 Deploying project image-recognition. This may take a few moments ...
-Restarted {} services. 1
+Restarted one service
 default: https://image-recognition.rorocloud.io/
 
 #inspect processes, just to check if the service is running
