@@ -1,6 +1,7 @@
-project: image-recognition-demo
+project: anand-test-1
 runtime: rorodata/sandbox
 
 services:
   - name: default
     function: predict.predict
+    size: S2

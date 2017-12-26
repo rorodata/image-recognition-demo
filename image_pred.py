@@ -1,11 +1,8 @@
 import numpy as np
 import sys, json
 import keras
-import imagenet_labels 
+import imagenet_labels
 import scipy.misc
-import matplotlib
-import matplotlib.pyplot as plt
-
 
 #vgg16=keras.applications.vgg16.VGG16(include_top=True, weights='imagenet', input_tensor=None, input_shape=None)
 
@@ -35,12 +32,17 @@ def predict(image, npreds=5):
     vgg16=load_model()
     pred=vgg16.predict(img.reshape(1,224,224,3))
     top_npreds=topk(pred,k=npreds)
-#     for i in top5:
-#         print(pred[0,i], imagenet_labels.imgnet1000[i])
-    labelz=[imagenet_labels.imgnet1000[i] for i in top_npreds]
-    probz=[float(round(pred[0,i],2)) for i in top_npreds]
-    d={"labels":labelz, "probs":probz}
-    return json.dumps(d)
+
+    def get_prediction(index):
+        label = imagenet_labels.imgnet1000[index]
+        proba = float(pred[0, index])
+        return {
+            "label": label,
+            "probability": proba
+        }
+
+    predictions = [get_prediction(i) for i in top_npreds]
+    return json.dumps(predictions)
 
 if __name__=='__main__':
     image=plt.imread(sys.argv[1])

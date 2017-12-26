@@ -1,10 +1,22 @@
-import matplotlib
-matplotlib.use('Agg')
-import matplotlib.pyplot as plt
+from PIL import Image
+import requests
 import image_pred
 import json
+import base64
+import io
 
-def predict(image_file, format="png", n=5):
-    img = plt.imread(image_file, format=format)
+def read_image(image_spec):
+    if not isinstance(image_spec, dict):
+        return None
+    if 'data' in image_spec:
+        data = base64.b64decode(image_spec['data'])
+    elif 'url' in image_spec:
+        data = requests.get(image_spec['url']).content
+    else:
+        return None
+    return Image.open(fp=io.BytesIO(data))
+
+def predict(image, n=5):
+    img = read_image(image)
     jsondata = image_pred.predict(img, n)
     return json.loads(jsondata)
