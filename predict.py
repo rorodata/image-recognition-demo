@@ -18,5 +18,4 @@ def read_image(image_spec):
 
 def predict(image, n=5):
     img = read_image(image)
-    jsondata = image_pred.predict(img, n)
-    return json.loads(jsondata)
+    return image_pred.predict(img, n)

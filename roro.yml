@@ -1,4 +1,4 @@
-project: anand-test-1
+project: image-recognition-demo
 runtime: rorodata/sandbox
 
 services:

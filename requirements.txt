@@ -1,2 +1,3 @@
 joblib
 Pillow
+-e git+git://github.com/rorodata/firefly.git@cors#egg=firefly-python

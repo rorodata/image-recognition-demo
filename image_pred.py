@@ -1,5 +1,4 @@
-import numpy as np
-import sys, json
+import sys
 import keras
 import imagenet_labels
 import scipy.misc
@@ -42,7 +41,7 @@ def predict(image, npreds=5):
         }
 
     predictions = [get_prediction(i) for i in top_npreds]
-    return json.dumps(predictions)
+    return predictions
 
 if __name__=='__main__':
     image=plt.imread(sys.argv[1])
