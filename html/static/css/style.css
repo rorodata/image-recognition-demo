@@ -1,0 +1,315 @@
+.roro-background-main {
+	background-color: #6F01DE;
+}
+
+.roro-background-secondary {
+	background-color: #2F005E;
+}
+
+.container p, span {
+	font-size: 16px;
+}
+
+.roro-segment-margin {
+	margin-bottom: 30px;
+}
+
+.roro-header {
+	margin-top: 25px;
+}
+
+.roro-table th {
+	font-size: 16px;
+	font-weight: 600;
+	line-height: normal;
+}
+
+.roro-table td {
+	font-size: 16px;
+	font-weight: normal;
+	line-height: normal;
+}
+
+.roro-item .item {
+	font-size: 0.75rem;
+}
+
+.roro-description {
+	font-size: 0.85rem;
+	font-weight: 400;
+}
+
+.roro-vertical-form {
+	width: 470px;
+	margin: 0px auto;
+	padding: 40px;
+	border-radius: 3px;
+	background: #E5E5E5;
+	box-sizing: border-box;
+
+}
+
+.roro-logo {
+	display: block;
+	height: 75px;
+	padding-top: 40px;
+	margin: 0px auto 30px;
+}
+
+.roro-login-legend {
+	margin-bottom: 45px;
+}
+
+ .roro-vertical-form input[type='submit'] {
+	color: white;
+	width: 100%;
+	background: #6F01DE;
+	border: 0;
+	font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+	font-weight: 400;
+	font-size: 1.0625rem;
+	text-align: center;
+	cursor: pointer;
+	height: auto;
+	display: block;
+	border-radius: 3px;
+	margin: 20px auto;
+	padding: 15px;
+	-webkit-appearance: none; 
+}
+
+.roro-form-footer {
+	text-align: center;
+	color: #676767;
+	margin: 20px auto;s
+}
+
+.roro-form-footer a {
+	color: #676767;
+	text-decoration: underline;
+}
+
+.roro-btn {
+	background-color: #6F01DE;
+}
+
+.roro-blank-segment {
+	height: 125px;
+}
+
+.roro-empty {
+  height: 150px
+}
+.roro-empty .middle {
+  height: 100%
+}
+
+.roro-disabled {
+	background-color: #EEEEEE;
+}
+
+.roro-img-row {
+  height: 544px;
+}
+
+/* Header Terminal Window Styling - RB */
+
+.terminal-window-head {
+  text-align: left;
+  width: 600px;
+  height: 400px;
+  border-radius: 10px;
+  margin: auto;
+  position: relative;
+}
+
+@media screen and (max-width: 768px) {
+  .terminal-window-head {
+    text-align: left;
+    width: auto;
+    height: 360px;
+    border-radius: 10px;
+    margin: auto;
+    position: relative;
+  }
+}
+
+
+.terminal-window-head header {
+  background: #E0E8F0;
+  height: 30px;
+  border-radius: 8px 8px 0 0;
+  padding-left: 10px;
+}
+
+.terminal-window-head header .button {
+  width: 12px;
+  height: 12px;
+  margin: 10px 4px 0 0;
+  display: inline-block;
+  border-radius: 8px;
+}
+
+.terminal-window-head header .button.green {
+  background: #3BB662;
+}
+
+.terminal-window-head header .button.yellow {
+  background: #E5C30F;
+}
+
+.terminal-window-head header .button.red {
+  background: #E75448;
+}
+
+.terminal-window-head section.terminal {
+  color: white;
+  font-family: Menlo, Monaco, "Consolas", "Courier New", "Courier";
+  font-size: 13px;
+  background: #30353A;
+  padding: 10px;
+  box-sizing: border-box;
+  position: absolute;
+  width: 100%;
+  top: 30px;
+  bottom: 0;
+  overflow: auto;
+  box-shadow: 0px 2px 4px rgba(0,0,0,0.18);
+}
+
+.terminal-window-head span.terminal-data {
+  font-size: 13px;
+}
+
+
+.terminal-window-head section.terminal .typed-cursor {
+    opacity: 1;
+    -webkit-animation: blink 0.7s infinite;
+    -moz-animation: blink 0.7s infinite;
+    animation: blink 0.7s infinite;
+}
+@keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-webkit-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-moz-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+
+.terminal-data { display: inline; }
+.terminal-window-head .gray { color: gray; }
+.terminal-window-head .green { color: green;}
+
+/* Header Terminal Window Styling - RB */
+
+/* Terminal Window Styling - RB */
+
+.terminal-window {
+  text-align: left;
+  width: 500px;
+  height: 625px;
+  border-radius: 10px;
+  margin: auto;
+  position: relative;
+  box-shadow: 0px 2px 4px rgba(0,0,0,0.18);
+}
+
+@media screen and (max-width: 768px) {
+  .terminal-window {
+    text-align: left;
+    width: auto;
+    height: 360px;
+    border-radius: 10px;
+    margin: auto;
+    position: relative;
+    box-shadow: 0px 2px 4px rgba(0,0,0,0.18);
+  }
+}
+
+.terminal-window header {
+  background: #E0E8F0;
+  height: 30px;
+  border-radius: 8px 8px 0 0;
+  padding-left: 10px;
+}
+
+.terminal-window header .button {
+  width: 12px;
+  height: 12px;
+  margin: 10px 4px 0 0;
+  display: inline-block;
+  border-radius: 8px;
+}
+
+.terminal-window header .button.green {
+  background: #3BB662;
+}
+
+.terminal-window header .button.yellow {
+  background: #E5C30F;
+}
+
+.terminal-window header .button.red {
+  background: #E75448;
+}
+
+.terminal-window section.terminal {
+  color: white;
+  font-family: Menlo, Monaco, "Consolas", "Courier New", "Courier";
+  font-size: 13px;
+  background: #30353A;
+  padding: 10px;
+  box-sizing: border-box;
+  position: absolute;
+  width: 100%;
+  top: 30px;
+  bottom: 0;
+  overflow: auto;
+}
+
+.terminal-window span.terminal-data {
+  font-size: 13px;
+}
+
+
+.terminal-window section.terminal .typed-cursor {
+    opacity: 1;
+    -webkit-animation: blink 0.7s infinite;
+    -moz-animation: blink 0.7s infinite;
+    animation: blink 0.7s infinite;
+}
+@keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-webkit-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-moz-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+
+.terminal-data { display: inline; }
+.terminal-window .gray { color: gray; }
+.terminal-window .green { color: green;}
+
+/* Terminal Window Styling - RB */
+
+
+.api-info pre, .api-info code {
+  margin: 0px;
+  padding: 0px;
+}

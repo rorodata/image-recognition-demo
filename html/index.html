@@ -1,0 +1,160 @@
+
+  <!DOCTYPE html>
+<html>
+<head>
+	<title>Image Recognition Demo</title>
+	<link rel="stylesheet" type="text/css" href="/static/css/semantic.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/style.css">
+	<link rel="stylesheet" href="/static/css/monokai-sublime.css ">
+</head>
+<body>
+	<div class="ui container">
+		
+<div class="ui raised container basic segment">
+  <h1 class="ui header">Image Recognition Demo</h1>
+  <span>Predicts the main object in an image</span>
+</div>
+
+<div class="ui raised container basic segment">
+    
+<div class="ui raised container segment" style="margin-bottom: 30px;">
+  <div class="ui stackable grid">
+    <div class="ten wide column roro-background-main">
+      <div class="ui centered grid">
+        <div class="row roro-img-row">
+          <div class="ui centered basic segment output-img">
+            <img class="ui fluid image" src="/static/images/gray.jpg">
+          </div>    
+        </div>          
+      </div>
+      <br>
+      <div class="ui centered grid roro-background-secondary input-img">
+        <div class="five column row">
+          
+            <div class="column">
+              <a class="ui image"><img src="https://rorodata-tmp.s3.amazonaws.com/ring-tailed-lemur.jpg"></a>
+            </div>
+          
+            <div class="column">
+              <a class="ui image"><img src="https://rorodata-tmp.s3.amazonaws.com/golden-gate.jpg"></a>
+            </div>
+          
+            <div class="column">
+              <a class="ui image"><img src="https://rorodata-tmp.s3.amazonaws.com/elephant.jpg"></a>
+            </div>
+          
+            <div class="column">
+              <a class="ui image"><img src="https://rorodata-tmp.s3.amazonaws.com/white-heron.jpg"></a>
+            </div>
+          
+            <div class="column">
+              <a class="ui image"><img src="https://rorodata-tmp.s3.amazonaws.com/tajmahal.jpg"></a>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+    <div class="six wide column output">
+      <h3 class="ui header">Image Recognition</h3>
+      <br>
+      <table class="ui very basic unstackable table">
+        <thead>
+          <tr>
+            
+              <th><h5 class="ui header">Label</h5></th>
+            
+              <th><h5 class="ui header">Probability</h5></th>
+            
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+  </div>  
+</div>
+
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+	<script src="/static/js/semantic.min.js"></script>
+	<script src="/static/js/style.js"></script>
+	<script src="/static/js/roro.js"></script>
+
+
+<script type="text/javascript">
+$(function() {
+  function process_data(data) {
+    $('.output').removeClass("ui loading basic segment");
+    $(".output table tbody").html("");
+
+    function process_value(value) {
+      if (typeof(value) == "object") 
+        return JSON.stringify(value);
+      else
+        return value;
+    }
+
+    // when data is an object instead of an array
+    // convert it into an array of {"key": k, "value": v} objects
+    if (!$.isArray(data) && typeof(data) == "object") {
+      var data2 = [];
+      for (var k in data) {
+        data2[data2.length] = {"key": k, "value": process_value(data[k])}
+      }
+      data = data2;
+    }
+
+    $.each(data, function(i, row) {
+      var keys = ["label", "probability"];
+
+      var tr = $(".output table tbody").append("<tr>").find("tr:last");
+
+      for (var i in keys) {
+        var key = keys[i];
+        tr.append("<td>").find("td:last").append(make_cell(row[key]));
+      }
+    });
+  }
+
+  function make_cell(value) {
+    var e = $("<span>");
+    if (typeof(value) == "number") {
+      e = e.addClass("cell-number").html(value.toFixed(2));
+    }
+    else if (typeof(value) == "string") {
+      e = e.addClass("cell-string").html(value);
+    }
+    else {
+      e = e.addClass("cell-object").html(value);
+    }
+    return e;
+  }
+
+  $('.input-img a img').click(function(){
+    $('.output-img img').attr('src', this.src);
+    $('.output').addClass("ui loading basic segment");
+
+    // Clear border in old selection
+    $(this).parent().parent().siblings().each(function(){
+      $(this).children().removeClass("bordered");
+    });
+
+    // Add border to current selection
+    $(this).parent().addClass("bordered");
+
+    var args = {
+        "image": {
+          "url": this.src
+        }
+    };
+
+    var api = roro.client("https://deeplearning-image.rorocloud.io/");
+    api.invoke("predict", args, process_data);
+  });
+});
+</script>
+
+
+</body>
+</html>
