@@ -5,3 +5,4 @@ services:
   - name: default
     function: predict.predict
     size: S2
+    cors_allow_origins: "*"
