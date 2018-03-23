@@ -149,7 +149,10 @@ $(function() {
         }
     };
 
-    var api = roro.client("https://deeplearning-image.rorocloud.io/");
+    // if the current hostname is foo.rorocloud.io,
+    // then the API host will be foo--api.rorocloud.io
+    vi api_host = document.location.host.replace(".", "--api.");
+    var api = roro.client(api_host);
     api.invoke("predict", args, process_data);
   });
 });
