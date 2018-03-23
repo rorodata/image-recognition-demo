@@ -151,8 +151,8 @@ $(function() {
 
     // if the current hostname is foo.rorocloud.io,
     // then the API host will be foo--api.rorocloud.io
-    vi api_host = document.location.host.replace(".", "--api.");
-    var api = roro.client(api_host);
+    var api_url = "https://" + document.location.host.replace(".", "--api.");
+    var api = roro.client(api_url);
     api.invoke("predict", args, process_data);
   });
 });
