@@ -1,8 +1,7 @@
 project: image-recognition-demo
-runtime: rorodata/sandbox
+runtime: python3-keras
 
 services:
   - name: default
     function: predict.predict
-    size: S2
     cors_allow_origins: "*"
