@@ -57,3 +57,7 @@ b0905fk7t  running   1 minute ago    0:01:43  C1               firefly -b 0.0.0.
 > print(imgrec_api.predict(image_file=open('haati.jpg', "rb"), format='jpg'))
 {'labels': ['tusker', 'African elephant, Loxodonta africana', 'Indian elephant, Elephas maximus', 'triceratops', 'gorilla, Gorilla gorilla'], 'probs': [0.5, 0.47999998927116394, 0.029999999329447746, 0.0, 0.0]}
 ```
+
+## Deploying with rorodata button
+
+[![Deploy to rorodata](https://assets.rorodata.com/buttons/deploy.png)](https://dashboard.rorodata.com/projects/new?template=https://github.com/rorodata/image-recognition-demo)
