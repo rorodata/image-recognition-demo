@@ -60,4 +60,4 @@ b0905fk7t  running   1 minute ago    0:01:43  C1               firefly -b 0.0.0.
 
 ## Deploying with rorodata button
 
-[![Deploy to rorodata](http://assets.rorodata.com/buttons/deploy.png =100x)](https://dashboard.rorodata.com/projects/new?template=https://github.com/rorodata/image-recognition-demo)
+[![Deploy to rorodata](http://assets.rorodata.com/buttons/deploy.png | width=100)](https://dashboard.rorodata.com/projects/new?template=https://github.com/rorodata/image-recognition-demo)
